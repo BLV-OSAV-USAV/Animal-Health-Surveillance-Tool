@@ -3,3 +3,10 @@ The sector Animal Disease Prevention of the FSVO developped a R-based tool to su
 
 Credits: 
 Gary Delalay, Valerie Hungerbühler, Giulia Paternoster.
+
+
+### How to use this tool
+Ensure that all required data is available and up-to-date. Check the documentation for help (for internal use only).
+
+For planning of the surveillance programme, run planning.R. 
+For evaluation of the surveillance programme, run evaluation.R
