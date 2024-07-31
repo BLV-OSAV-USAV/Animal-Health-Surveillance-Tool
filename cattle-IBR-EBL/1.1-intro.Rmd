@@ -1,0 +1,91 @@
+# Introduction {#intro_plan}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Generalities
+
+The objective of the surveillance program is to demonstrate the freedom of the Swiss cattle population from Infectious bovine rhinotracheitis (IBR) and Enzootic bovine leukosis (EBL) in accordance with the requirements of the bilateral treaties with the EU.
+
+## Methods
+
+The evaluation of the surveillance system is used to assess the probability of freedom from IBR and EBL in Swiss livestock herds given a certain threshold for inter-herd prevalence $P_{betH}$ and within-herd prevalence $P_{inH}$.
+
+Dairy and non-dairy (furtherby named beef) herds are considered as separate populations. Each of these two subpopulations includes two types of samples (random samples and sentinel samples, where farms belonging to the latter are called sentinel farms). The method used is based on the one described by [@RN2]. 
+
+Thus, monitoring is performed in a total of four compartments (dairy herds with random sampling, risk based sampling of dairy sentinel herds, beef herds with random sampling and risk-based sampling of beef sentinel herds). 
+Dairy farms are sampled by tank milk sampling while for beef farms blood samples from single animals are collected. No risk factors are considered in the random component. The sentinel component includes sentinel herds selected based on their relative risk. The risk factors considered are: **animal contacts with foreign livestock operations**, **above average animal traffic**, **high density of livestock operations in the neighbourhood**, **border livestock operations** and **cattle imports**.
+
+## Programming tools
+
+The planning tool for the surveillance programme for IBR and EBL was coded with the language `R version 4.2.0 "Vigorous Calisthenics"` [@R-base] in the integrated development environment `RStudio version 2022.02.2 Build 485 "Prairie Trillium"`. The packages used are `tidyverse version 1.3.2` [@R-tidyverse; @tidyverse2019], which itself loads several packages which we used (`tibble version 3.1.8` [@R-tibble], `dplyr version 1.0.9` [@R-dplyr], `tidyr version 1.2.0` [@R-tidyr], `stringr version 1.4.1` [@R-stringr], `readr version 2.1.2` [@R-readr] and `purrr version 0.3.4` [@R-purrr]). Additionally, other packages from the *tidyverse* but not loaded by default by the package of the same name were used: `readxl version 1.4.1` [@R-readxl], `dtplyr version 1.2.2` [@R-dtplyr] and `lubridate version 1.8.0` [@R-lubridate; @lubridate2011]. The packages `freedom version 1.0.1` [@R-freedom], `sf version 1.0-8` [@R-sf; @sf2018] and `openxlsx version 4.2.5` [@R-openxlsx] were also used.
+
+This documentation will not dwell long on information regarding the packages, and will only provide two things. Firstly, the code that was used to load and, if necessary, first install the packages, can be seen below. Secondly, this documentation will provide some information on the `freedom` package and explain why some adaptations were made for two functions.
+
+### Loading of the packages {#packages_plan}
+
+This code was used to load packages. If packages were not installed, they were first installed and then loaded. The results, messages and warnings called by the code are also provided.
+
+```{python load_packages_plan, eval=FALSE}
+packages <- c("tidyverse", "readxl", "dtplyr", "lubridate", "freedom", "sf",
+              "openxlsx")
+
+for (i in packages) {
+  if(require(i, character.only = TRUE)) {
+    print(paste(i, "is loaded correctly"))
+  } else {
+    print(paste("trying to install", i))
+    install.packages(i, dependencies = TRUE, type = "win.binary")
+    if(require(i, character.only = TRUE)) {
+      print(paste(i, "installed and loaded"))
+    } else {
+      stop(paste("could not install", i))
+    }
+  }
+}
+
+remove(packages, i)
+```
+
+```{r load_other_packages, include=FALSE}
+# The packages "knitr", "bookdown", "kableExtra" and "xaringanExtra" were only used to create the HTML documentation, and have nothing with the evaluation code to do. Therefore, they will be loaded separately and their code will be hided.
+
+library(tidyverse)
+library(readxl)
+library(dtplyr)
+library(lubridate)
+library(freedom)
+library(sf)
+library(openxlsx)
+library(knitr)
+library(bookdown)
+library(kableExtra)
+library(xaringanExtra)
+```
+
+```{r citation_packages, include=FALSE}
+knitr::write_bib(c(.packages()), "packages.bib")
+```
+
+### Modification of functions of the `freedom` package
+
+The `freedom` package implements functions used to calculate probability of disease freedom. Even if the different mathematical formula were already described before, the package builds on the publication of [@RN2], which provided a framework to aggregate data from different sources and different surveillance components together to calculate the surveillance system sensitivity $SSe$ and the probability of freedom $PostPFree$. This method is known as 'scenario-tree modelling to provide disease freedom'.
+
+The The maintainer of the code will possibly remark that the function `hse_finite` is modified for the [Part II: Evaluation of the surveillance programme](#Evaluation). This also causes the function `hse` to be modified, as it calls the previous one.
+
+This rationale behind this modification is explained in [section 6.3.2](#ModificationFn). However, it was not done for the planning part, as it necessitates information on the total number of animals in the herd, which is likely to change during the elapsed time between the planning and the actual testing. Also, using `hse_infinite` instead of `hse_finite` provides more conservative results, which is of advantage during the planning phase.
+
+## Outline of the steps to plan the surveillance programme
+
+To plan the surveillance programme, several information are needed. First, a list of the cattle farms tested for IBR and EBL and with their adjusted relative risk ($ARR$) must be computed. Also, different parameters must be defined, such as the target posterior probability of freedom ($PostPFree$) or the number of tested animals per herd ($N_{tested}$).
+
+Some of these data can be obtained directly, while others have to be computed. So first, all the data needed will be loaded, such as data on the cattle population, values for the parameter, relative risks for each risk factor, etc. (see [chapter 2](#load_plan)).
+
+Then, a list of the cattle farm with their classification into risk level for each risk factor will be computed (see [chapter 3](#edit_plan)).
+
+From these information, the $ARR$ will be calculated for each of the farm (see [section 4.1](#calc_ARR_plan)).
+
+We will then have to apply the methods described by [@RN2] in order to calculate the scenario tree and obtain the $SSe$ (see [section 4.2](#calc_sceTre_plan)), before computing the $PostPFree$ (see [section 4.3](#calc_postpfree_plan)). From these calculations, the appropriate number of sentinels will be selected (see [section 4.4](#calc_nsentinels_plan)).
+
+Finally, the results will be exported (see [chapter 5](#export_plan)).
