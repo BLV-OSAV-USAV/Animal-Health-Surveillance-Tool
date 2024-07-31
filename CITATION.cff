@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Delalay"
+  given-names: "Gary"
+  orcid: ""
+- family-names: "Hungerbühler"
+  given-names: "Valerie"
+  orcid: ""
+- family-names: "Paternoster"
+  given-names: "Giulia"
+  orcid: ""
+title: "Title to be defined"
+version: 
+doi: 
+date-released: 2024-07-31
+url: "https://github.com/BLV-OSAV-USAV/TGTS-Surveillance-IBR-EBL"
