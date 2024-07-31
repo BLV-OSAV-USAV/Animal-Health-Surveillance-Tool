@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Documentation of the IBR &amp; EBL surveillance programme tool</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="documentation_files/libs/clipboard/clipboard.min.js"></script>
+<script src="documentation_files/libs/quarto-html/quarto.js"></script>
+<script src="documentation_files/libs/quarto-html/popper.min.js"></script>
+<script src="documentation_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="documentation_files/libs/quarto-html/anchor.min.js"></script>
+<link href="documentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="documentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="documentation_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="documentation_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="documentation_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="documentation_files/libs/panelset-0.3.0/panelset.css" rel="stylesheet">
+<script src="documentation_files/libs/panelset-0.3.0/panelset.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul class="collapse">
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about"><span class="toc-section-number">1</span>  About</a>
+  <ul class="collapse">
+  <li><a href="#where-to-find-the-code" id="toc-where-to-find-the-code" class="nav-link" data-scroll-target="#where-to-find-the-code"><span class="toc-section-number">1.1</span>  Where to find the code</a></li>
+  </ul></li>
+  <li><a href="#objective-of-surveillance-programme" id="toc-objective-of-surveillance-programme" class="nav-link" data-scroll-target="#objective-of-surveillance-programme"><span class="toc-section-number">2</span>  Objective of surveillance programme</a></li>
+  <li><a href="#planning-of-surveillance-programme" id="toc-planning-of-surveillance-programme" class="nav-link" data-scroll-target="#planning-of-surveillance-programme"><span class="toc-section-number">3</span>  Planning of surveillance programme</a>
+  <ul class="collapse">
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="toc-section-number">3.1</span>  Methods</a></li>
+  <li><a href="#programming-tools" id="toc-programming-tools" class="nav-link" data-scroll-target="#programming-tools"><span class="toc-section-number">3.2</span>  Programming tools</a></li>
+  <li><a href="#outline-of-the-steps-to-plan-the-surveillance-programme" id="toc-outline-of-the-steps-to-plan-the-surveillance-programme" class="nav-link" data-scroll-target="#outline-of-the-steps-to-plan-the-surveillance-programme"><span class="toc-section-number">3.3</span>  Outline of the steps to plan the surveillance programme</a></li>
+  </ul></li>
+  <li><a href="#evaluation-of-surveillance-programme" id="toc-evaluation-of-surveillance-programme" class="nav-link" data-scroll-target="#evaluation-of-surveillance-programme"><span class="toc-section-number">4</span>  Evaluation of surveillance programme</a>
+  <ul class="collapse">
+  <li><a href="#methods-1" id="toc-methods-1" class="nav-link" data-scroll-target="#methods-1"><span class="toc-section-number">4.1</span>  Methods</a></li>
+  <li><a href="#programming-tools-1" id="toc-programming-tools-1" class="nav-link" data-scroll-target="#programming-tools-1"><span class="toc-section-number">4.2</span>  Programming tools</a></li>
+  <li><a href="#outline-of-the-steps-to-evaluate-the-surveillance-programme" id="toc-outline-of-the-steps-to-evaluate-the-surveillance-programme" class="nav-link" data-scroll-target="#outline-of-the-steps-to-evaluate-the-surveillance-programme"><span class="toc-section-number">4.3</span>  Outline of the steps to evaluate the surveillance programme</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">5</span>  References</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Documentation of the IBR &amp; EBL surveillance programme tool</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="about" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> About</h1>
+<p>This documentation is designed to be used by the maintainer of the code of the tools for the surveillance programme for Infectious bovine rhinotracheitis (IBR) and Enzootic bovine leukosis (EBL) in cattle in Switzerland.</p>
+<p>There is actually two tools which were created: the first one is used to plan for the next period of the surveillance programme, while the second one is used at the end of the period of the surveillance programme to calculate the probability of freedom reached.</p>
+<p>The surveillance programme is based on the scenario-tree method described by <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span>. The package used to implement the method is the package <code>freedom</code> <span class="citation" data-cites="R-freedom">(<a href="#ref-R-freedom" role="doc-biblioref">Rosendal 2020</a>)</span>.</p>
+<section id="where-to-find-the-code" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="where-to-find-the-code"><span class="header-section-number">1.1</span> Where to find the code</h2>
+<p>The code for the planning of the surveillance programme can be found at the following location: <code>code/planning.R</code>.</p>
+<p>The code for the evaluation of the surveillance programme can be found at the following location: <code>code/evaluation.R</code>.</p>
+</section>
+</section>
+<section id="objective-of-surveillance-programme" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Objective of surveillance programme</h1>
+<p>The objective of the surveillance programme is to demonstrate the freedom of the Swiss cattle population from IBR and EBL in accordance with the requirements of the bilateral treaties with the EU.</p>
+</section>
+<section id="planning-of-surveillance-programme" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Planning of surveillance programme</h1>
+<section id="methods" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="methods"><span class="header-section-number">3.1</span> Methods</h2>
+<p>The evaluation of the surveillance system is used to assess the probability of freedom from IBR and EBL in Swiss livestock herds given a certain threshold for inter-herd prevalence <span class="math inline">\(P_{betH}\)</span> and within-herd prevalence <span class="math inline">\(P_{inH}\)</span>.</p>
+<p>Dairy and non-dairy (furtherby named beef) herds are considered as separate populations. Each of these two subpopulations includes two types of samples (random samples and sentinel samples, where farms belonging to the latter are called sentinel farms). The method used is based on the one described by <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span>.</p>
+<p>Thus, monitoring is performed in a total of four compartments (dairy herds with random sampling, risk based sampling of dairy sentinel herds, beef herds with random sampling and risk-based sampling of beef sentinel herds). Dairy farms are sampled by tank milk sampling while for beef farms blood samples from single animals are collected. No risk factors are considered in the random component. The sentinel component includes sentinel herds selected based on their relative risk. The risk factors considered are: <strong>animal contacts with foreign livestock operations</strong>, <strong>above average animal traffic</strong>, <strong>high density of livestock operations in the neighbourhood</strong>, <strong>border livestock operations</strong> and <strong>cattle imports</strong>.</p>
+</section>
+<section id="programming-tools" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="programming-tools"><span class="header-section-number">3.2</span> Programming tools</h2>
+<p>The planning tool for the surveillance programme for IBR and EBL was coded with the language <code>R version 4.2.0 "Vigorous Calisthenics"</code> <span class="citation" data-cites="R-base">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2022</a>)</span> in the integrated development environment <code>RStudio version 2022.02.2 Build 485 "Prairie Trillium"</code>. The packages used are <code>tidyverse version 1.3.2</code> <span class="citation" data-cites="R-tidyverse tidyverse2019">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>; <a href="#ref-tidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>, which itself loads several packages which we used (<code>tibble version 3.1.8</code> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <code>dplyr version 1.0.9</code> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <code>tidyr version 1.2.0</code> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2024</a>)</span>, <code>stringr version 1.4.1</code> <span class="citation" data-cites="R-stringr">(<a href="#ref-R-stringr" role="doc-biblioref">Wickham 2022</a>)</span>, <code>readr version 2.1.2</code> <span class="citation" data-cites="R-readr">(<a href="#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2024</a>)</span> and <code>purrr version 0.3.4</code> <span class="citation" data-cites="R-purrr">(<a href="#ref-R-purrr" role="doc-biblioref">Wickham and Henry 2023</a>)</span>). Additionally, other packages from the <em>tidyverse</em> but not loaded by default by the package of the same name were used: <code>readxl version 1.4.1</code> <span class="citation" data-cites="R-readxl">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2023</a>)</span>, <code>dtplyr version 1.2.2</code> <span class="citation" data-cites="R-dtplyr">(<a href="#ref-R-dtplyr" role="doc-biblioref">Wickham, Girlich, et al. 2023</a>)</span> and <code>lubridate version 1.8.0</code> <span class="citation" data-cites="R-lubridate lubridate2011">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2023</a>; <a href="#ref-lubridate2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>. The packages <code>freedom version 1.0.1</code> <span class="citation" data-cites="R-freedom">(<a href="#ref-R-freedom" role="doc-biblioref">Rosendal 2020</a>)</span>, <code>sf version 1.0-8</code> <span class="citation" data-cites="R-sf sf2018">(<a href="#ref-R-sf" role="doc-biblioref">Pebesma 2024</a>, <a href="#ref-sf2018" role="doc-biblioref">2018</a>)</span> and <code>openxlsx version 4.2.5</code> <span class="citation" data-cites="R-openxlsx">(<a href="#ref-R-openxlsx" role="doc-biblioref">Schauberger and Walker 2024</a>)</span> were also used.</p>
+<p>This documentation will not dwell long on information regarding the packages, and will only provide two things. Firstly, the code that was used to load and, if necessary, first install the packages, can be seen below. Secondly, this documentation will provide some information on the <code>freedom</code> package and explain why some adaptations were made for two functions.</p>
+<section id="packages_plan" class="level3">
+<h3 class="anchored" data-anchor-id="packages_plan">Loading of the packages</h3>
+<p>This code was used to load packages. If packages were not installed, they were first installed and then loaded. The results, messages and warnings called by the code are also provided.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>packages <span class="op">&lt;-</span> c(<span class="st">"tidyverse"</span>, <span class="st">"readxl"</span>, <span class="st">"dtplyr"</span>, <span class="st">"lubridate"</span>, <span class="st">"freedom"</span>, <span class="st">"sf"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"openxlsx"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="kw">in</span> packages) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(require(i, character.only <span class="op">=</span> TRUE)) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(paste(i, <span class="st">"is loaded correctly"</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(paste(<span class="st">"trying to install"</span>, i))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    install.packages(i, dependencies <span class="op">=</span> TRUE, <span class="bu">type</span> <span class="op">=</span> <span class="st">"win.binary"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(require(i, character.only <span class="op">=</span> TRUE)) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(paste(i, <span class="st">"installed and loaded"</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      stop(paste(<span class="st">"could not install"</span>, i))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>remove(packages, i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modification-of-functions-of-the-freedom-package" class="level3">
+<h3 class="anchored" data-anchor-id="modification-of-functions-of-the-freedom-package">Modification of functions of the <code>freedom</code> package</h3>
+<p>The <code>freedom</code> package implements functions used to calculate probability of disease freedom. Even if the different mathematical formula were already described before, the package builds on the publication of <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span>, which provided a framework to aggregate data from different sources and different surveillance components together to calculate the surveillance system sensitivity <span class="math inline">\(SSe\)</span> and the probability of freedom <span class="math inline">\(PostPFree\)</span>. This method is known as ‘scenario-tree modelling to provide disease freedom’.</p>
+<p>The maintainer of the code will possibly remark that the function <code>hse_finite</code> is modified for the <a href="#Evaluation">Part II: Evaluation of the surveillance programme</a>. This also causes the function <code>hse</code> to be modified, as it calls the previous one.</p>
+<p>This rationale behind this modification is explained in <a href="#ModificationFn">section 6.3.2</a>. However, it was not done for the planning part, as it necessitates information on the total number of animals in the herd, which is likely to change during the elapsed time between the planning and the actual testing. Also, using <code>hse_infinite</code> instead of <code>hse_finite</code> provides more conservative results, which is of advantage during the planning phase.</p>
+</section>
+</section>
+<section id="outline-of-the-steps-to-plan-the-surveillance-programme" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="outline-of-the-steps-to-plan-the-surveillance-programme"><span class="header-section-number">3.3</span> Outline of the steps to plan the surveillance programme</h2>
+<p>To plan the surveillance programme, several information are needed. First, a list of the cattle farms tested for IBR and EBL and with their adjusted relative risk (<span class="math inline">\(ARR\)</span>) must be computed. Also, different parameters must be defined, such as the target posterior probability of freedom (<span class="math inline">\(PostPFree\)</span>) or the number of tested animals per herd (<span class="math inline">\(N_{tested}\)</span>).</p>
+<p>Some of these data can be obtained directly, while others have to be computed. So first, all the data needed will be loaded, such as data on the cattle population, values for the parameter, relative risks for each risk factor, etc. (see <code>01_planning_02_loadData.R</code>).</p>
+<p>Then, a list of the cattle farm with their classification into risk level for each risk factor will be computed (see <code>01_planning_03_editData.R</code>).</p>
+<p>From these information, the <span class="math inline">\(ARR\)</span> will be calculated for each of the farm (see <code>01_planning_04_calculationsPartI.R</code>).</p>
+<p>We will then have to apply the methods described by <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span> in order to calculate the scenario tree and obtain the <span class="math inline">\(SSe\)</span>, before computing the <span class="math inline">\(PostPFree\)</span>. From these calculations, the appropriate number of sentinels will be selected.</p>
+<p>Finally, the results will be exported (see <code>01_planning_07_exportFinalResults.R</code>).</p>
+</section>
+</section>
+<section id="evaluation-of-surveillance-programme" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Evaluation of surveillance programme</h1>
+<section id="methods-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="methods-1"><span class="header-section-number">4.1</span> Methods</h2>
+<p>The evaluation of the surveillance system is used to assess the probability of freedom from IBR and EBL in Swiss livestock herds given a certain threshold for inter-herd prevalence <span class="math inline">\(P_{betH}\)</span> and intra-herd prevalence <span class="math inline">\(P_{inH}\)</span>.</p>
+<p>Dairy and non-dairy (furtherby named beef) herds are considered as separate populations. Each of these two subpopulations includes two types of samples (random samples and sentinel samples, where farms belonging to the latter are called sentinel farms). The method used is based on the one described by <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span>.</p>
+<p>Thus, monitoring is performed in a total of four compartments (dairy herds with random sampling, risk based sampling of dairy sentinel herds, beef herds with random sampling and risk-based sampling of beef sentinel herds). Dairy farms are sampled by tank milk sampling while beef farms are sampled at the slaughterhouse while for beef farms blood samples from single animals are collected. No risk factors are considered in the random component. The sentinel component includes sentinel herds selected based on their relative risk. The risk factors considered are: <strong>animal contacts with foreign livestock operations</strong>, <strong>above average animal traffic</strong>, <strong>high density of livestock operations in the neighbourhood</strong>, <strong>border livestock operations</strong> and <strong>cattle imports</strong>.</p>
+</section>
+<section id="programming-tools-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="programming-tools-1"><span class="header-section-number">4.2</span> Programming tools</h2>
+<p>The planning tool for the surveillance programme for IBR and EBL was coded with the language <code>R version 4.2.0 "Vigorous Calisthenics"</code> <span class="citation" data-cites="R-base">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2022</a>)</span> in the integrated development environment <code>RStudio version 2022.02.2 Build 485 "Prairie Trillium"</code>. The packages used are <code>tidyverse version 1.3.2</code> <span class="citation" data-cites="R-tidyverse tidyverse2019">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>; <a href="#ref-tidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>, which itself loads several packages which we used (<code>tibble version 3.1.8</code> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <code>dplyr version 1.0.9</code> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <code>tidyr version 1.2.0</code> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2024</a>)</span>, <code>stringr version 1.4.1</code> <span class="citation" data-cites="R-stringr">(<a href="#ref-R-stringr" role="doc-biblioref">Wickham 2022</a>)</span>, <code>readr version 2.1.2</code> <span class="citation" data-cites="R-readr">(<a href="#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2024</a>)</span> and <code>purrr version 0.3.4</code> <span class="citation" data-cites="R-purrr">(<a href="#ref-R-purrr" role="doc-biblioref">Wickham and Henry 2023</a>)</span>). Additionally, other packages from the <em>tidyverse</em> but not loaded by default by the package of the same name were used: <code>readxl version 1.4.1</code> <span class="citation" data-cites="R-readxl">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2023</a>)</span>, <code>dtplyr version 1.2.2</code> <span class="citation" data-cites="R-dtplyr">(<a href="#ref-R-dtplyr" role="doc-biblioref">Wickham, Girlich, et al. 2023</a>)</span> and <code>lubridate version 1.8.0</code> <span class="citation" data-cites="R-lubridate lubridate2011">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2023</a>; <a href="#ref-lubridate2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>. The packages <code>freedom version 1.0.1</code> <span class="citation" data-cites="R-freedom">(<a href="#ref-R-freedom" role="doc-biblioref">Rosendal 2020</a>)</span> and <code>openxlsx version 4.2.5</code> <span class="citation" data-cites="R-openxlsx">(<a href="#ref-R-openxlsx" role="doc-biblioref">Schauberger and Walker 2024</a>)</span> were also used.</p>
+<p>This documentation will not dwell long on information regarding the packages, and will only provide two things. Firstly, the code that was used to load and, if necessary, first install the packages, can be seen below. Secondly, this documentation will provide some information on the <code>freedom</code> package and explain why some adaptations were made for two functions.</p>
+<section id="packages_eval" class="level3">
+<h3 class="anchored" data-anchor-id="packages_eval">Loading of the packages</h3>
+<p>This code was used to load packages. If packages were not installed, they were first installed and then loaded. The results, messages and warnings called by the code are also provided.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>packages <span class="op">&lt;-</span> c(<span class="st">"tidyverse"</span>, <span class="st">"readxl"</span>, <span class="st">"dtplyr"</span>, <span class="st">"lubridate"</span>, <span class="st">"freedom"</span>, <span class="st">"openxlsx"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="kw">in</span> packages) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(require(i, character.only <span class="op">=</span> TRUE)) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(paste(i, <span class="st">"is loaded correctly"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(paste(<span class="st">"trying to install"</span>, i))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    install.packages(i, dependencies <span class="op">=</span> TRUE, <span class="bu">type</span> <span class="op">=</span> <span class="st">"win.binary"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(require(i, character.only <span class="op">=</span> TRUE)) {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(paste(i, <span class="st">"installed and loaded"</span>))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      stop(paste(<span class="st">"could not install"</span>, i))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>remove(packages, i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ModificationFn" class="level3">
+<h3 class="anchored" data-anchor-id="ModificationFn">Modification of functions of the <code>freedom</code> package</h3>
+<p>The <code>freedom</code> package implements functions used to calculate probability of disease freedom. Even if the different mathematical formula were already described before, the package builds on the publication of <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Martin, Cameron, and Greiner 2007</a>)</span>, which provided a framework to aggregate data from different sources and different surveillance components together to calculate the surveillance system sensitivity <span class="math inline">\(SSe\)</span> and the probability of freedom <span class="math inline">\(PostPFree\)</span>. This method is known as ‘scenario-tree modelling to provide disease freedom’.</p>
+<p>The functions <code>hse</code> calculates the herd sensitivity <span class="math inline">\(HSe\)</span>. It is based on the following formula: <span class="math inline">\(HSe = 1 - (1 - P_{inH}) ^ {N_{tested}}\)</span> with <span class="math inline">\(P_{inH}\)</span> the prevalence of positive animals within the herd and <span class="math inline">\(N_{tested}\)</span> the number of animals tested within the herd. <span class="math inline">\(HSe\)</span>, the herd sensitivity, represents the sensitivity of the surveillance, i.e.&nbsp;the probability to find at least one positive animal when testing <span class="math inline">\(N_{tested}\)</span> animals in the herd if the herd was infected with a prevalence <span class="math inline">\(P_{inH}\)</span>.</p>
+<p>However, this assumes that there is sampling with replacement. This assumption can be made when the herd is big enough and only a small proportion of animals are tested. However, if this is not the case, another formula needs to be used <span class="citation" data-cites="RN3">(<a href="#ref-RN3" role="doc-biblioref">Cameron and Baldock 1998</a>)</span>. This formula uses an approximation to the hypergeometric distribution to calculate the <span class="math inline">\(HSe\)</span>.</p>
+<p>The function <code>hse</code> uses this formula when a threshold representing the <span class="math inline">\(\frac{N_{tested}}{N_{animals}}\)</span>, <span class="math inline">\(N_{animals}\)</span> representing the total number of animals in the herd, is exceeded. The default for the threshold is <span class="math inline">\(0.1\)</span>. In this case, the function <code>hse</code> calls the function <code>hse_finite</code>.</p>
+<p>The hypergeometric distribution cannot use the prevalence <span class="math inline">\(P_{inH}\)</span>, but needs an integer <span class="math inline">\(N_{pos}\)</span> representing the number of positive animals in the herd. The integer is needed as well for the mathematical formula than for the biological plausibility. Indeed, an animal is either positive or negative, but cannot be part positive and part negative. The approximation of the hypergeometric distribution can accept positive, non-integer values.</p>
+<p><span class="math inline">\(N_{pos} = P_{inH} \cdot N_{tested}\)</span>. However, with this calculation, <span class="math inline">\(N_{pos}\)</span> can also have non-integer values. <span class="citation" data-cites="RN3">(<a href="#ref-RN3" role="doc-biblioref">Cameron and Baldock 1998</a>)</span> proposed to round <span class="math inline">\(N_{pos}\)</span> up, arguing that a part-positive animal should be biologically be considered as wholly positive. The authors of the <code>freedom</code> package decided not to round <span class="math inline">\(P_{inH}\)</span> and to keep non-integer values, as rounding up could possibly lead to overestimation of <span class="math inline">\(HSe\)</span>.</p>
+<p>As an example, when comparing both approaches with a herd of 11 animals, a prevalence of 10 percent and testing 3 animals (<span class="math inline">\(N_{animals} = 11\)</span>, <span class="math inline">\(P_{inH} = 0.1\)</span>, <span class="math inline">\(N_{tested} = 3\)</span>), the approach of <span class="citation" data-cites="RN3">(<a href="#ref-RN3" role="doc-biblioref">Cameron and Baldock 1998</a>)</span> provides <span class="math inline">\(HSe = 0.451\)</span> while the approach of the authors of the package <code>freedom</code> provides <span class="math inline">\(HSe = 0.281\)</span>.</p>
+<p>We decided to use generally the approach of the authors of the package <code>freedom</code>, as it was more conservative with the results of <span class="math inline">\(HSe\)</span>. However, we decided to make a small modification to the <code>hse_finite</code> function when the expected number of positive animals would lie below 1 (<span class="math inline">\(N_{pos} &lt; 1\)</span>). Indeed, if a herd is infected, then there must have at least one positive animal within the herd. Therefore, we modified <code>hse_finite</code> in order to round <span class="math inline">\(N_{pos}\)</span> to one when below one, and to keep its non-integer value if it lies above one.</p>
+<p>The new function <code>hse_finite_modified</code> was created by copying the original code of the <code>hse_finite</code> function of the <code>freedom</code> package and modifying it as following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hse_finite_modified <span class="ot">&lt;-</span> <span class="cf">function</span>(id,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                       n_tested,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                       N,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                       test_Se,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                       dp) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(n_tested) <span class="sc">!=</span> <span class="fu">length</span>(N)) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"The length of the n_tested vector must be equal to the N"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"vector. ie. you must describe both the number of animals"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"tested in each group as well as how many animals are in"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"each group."</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(n_tested <span class="sc">&gt;</span> N)) {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"One of the URG has more subunits tested than in the population"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(<span class="fu">length</span>(dp) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">||</span> <span class="fu">length</span>(n_tested) <span class="sc">==</span> <span class="fu">length</span>(dp))) {</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"The length of the n_tested vector must be equal to"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>               <span class="st">"the dp vector. ie. you must describe both the number of"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>               <span class="st">"animals tested in each group as well as the dp in"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>               <span class="st">"each group."</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(<span class="fu">length</span>(test_Se) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">||</span> <span class="fu">length</span>(test_Se) <span class="sc">==</span> <span class="fu">length</span>(n_tested))) {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"The length of test_Se must be either 1 or the length of n_tested"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(<span class="fu">length</span>(id) <span class="sc">==</span> <span class="fu">length</span>(n_tested))) {</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"Argument id (grouping variable) should be"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>               <span class="st">"the same length as n_tested"</span>))</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (n_tested <span class="sc">*</span> test_Se <span class="sc">/</span> N)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  B <span class="ot">&lt;-</span> <span class="fu">pmax</span>(dp <span class="sc">*</span> N, <span class="dv">1</span>) <span class="co"># Change to the original function to round to 1 if below 1</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">tapply</span>(A <span class="sc">^</span> B, <span class="at">INDEX =</span> id, <span class="at">FUN =</span> <span class="st">"prod"</span>))</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HSe"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>id <span class="ot">&lt;-</span> <span class="fu">rownames</span>(df)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  df[, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"HSe"</span>)]</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In consequence, the function <code>hse</code> was also updated to <code>hse_modified</code> to call <code>hse_finite_modified</code> instead of <code>hse_finite</code> when the threshold was exceeded.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hse_modified <span class="ot">&lt;-</span> <span class="cf">function</span>(id,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                n_tested,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                N,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                test_Se,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                dp,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">threshold =</span> <span class="fl">0.1</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">force =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Ratio of animals tested in the herds</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> n_tested <span class="sc">/</span> N</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if this is more than expected</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(ratio <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">&amp;</span> <span class="sc">!</span>force) {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    problem <span class="ot">&lt;-</span> id[ratio <span class="sc">&gt;</span> <span class="dv">1</span>]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"Greater than 100% of animals cannot be tested."</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>               <span class="st">"This occurs in the following ids:"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>               <span class="fu">paste</span>(problem, <span class="at">collapse =</span> <span class="st">", "</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>               <span class="st">"To ignore this an default to infinite population"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>               <span class="st">"for these herds, set force = TRUE"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Use the finite calculation for those with more than the threshold</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  finite <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  index_finite <span class="ot">&lt;-</span> (ratio <span class="sc">&gt;</span> threshold) <span class="sc">&amp;</span> (ratio <span class="sc">&lt;=</span> <span class="dv">1</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  test_Se_finite <span class="ot">&lt;-</span> test_Se</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(test_Se) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    test_Se_finite <span class="ot">&lt;-</span> test_Se[index_finite]</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  dp_finite <span class="ot">&lt;-</span> dp</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(dp) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    dp_finite <span class="ot">&lt;-</span> dp[index_finite]</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(index_finite)) {</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    finite <span class="ot">&lt;-</span> <span class="fu">hse_finite_modified</span>(id[index_finite], <span class="co"># Change to the original function to use 'hse_finite_modified' and not 'hse_finite'</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                                  n_tested[index_finite],</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                                  N[index_finite],</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                                  test_Se_finite,</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                                  dp_finite)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    finite<span class="sc">$</span>method <span class="ot">&lt;-</span> <span class="st">"finite"</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">all</span>(index_finite)) {</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(finite)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Otherwise use the infinite</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  index_infinite <span class="ot">&lt;-</span> <span class="sc">!</span>index_finite</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  test_Se_infinite <span class="ot">&lt;-</span> test_Se</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(test_Se) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    test_Se_infinite <span class="ot">&lt;-</span> test_Se[index_infinite]</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  dp_infinite <span class="ot">&lt;-</span> dp</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(dp) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    dp_infinite <span class="ot">&lt;-</span> dp[index_infinite]</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  infinite <span class="ot">&lt;-</span> freedom<span class="sc">::</span><span class="fu">hse_infinite</span>(id[index_infinite],</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>                           n_tested[index_infinite],</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>                           test_Se_infinite,</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>                           dp_infinite)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  infinite<span class="sc">$</span>method <span class="ot">&lt;-</span> <span class="st">"infinite"</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="do">## return the complete dataset</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(finite,</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>        infinite)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="outline-of-the-steps-to-evaluate-the-surveillance-programme" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="outline-of-the-steps-to-evaluate-the-surveillance-programme"><span class="header-section-number">4.3</span> Outline of the steps to evaluate the surveillance programme</h2>
+<p>To evaluate the surveillance programme, several information are needed. First, a list of all the samples taken and tested throughout the surveillance programme must be loaded. Also, different parameters must be defined, such as the target posterior probability of freedom (<span class="math inline">\(PostPFree\)</span>) or the number of tested animals per herd (<span class="math inline">\(N_{tested}\)</span>). Finally, a list displaying the adjusted relative risk (<span class="math inline">\(ARF\)</span>) of each of the sentinel farms must also be retrieved.</p>
+<p>First, these data will be loaded (see <code>02_evaluation_02_loadData.R</code>).</p>
+<p>Then, the calculations of the component sensitivity <span class="math inline">\(CSe\)</span> for each of the components of the tree will be computed.</p>
+<p>Then, the sensitivity of the surveillance system <span class="math inline">\(SSe\)</span> will be calculated.</p>
+<p>This will allow us to calculate the posterior probability of disease freedom <span class="math inline">\(PostPFree\)</span> and to compare it to the targeted probability of freedom.</p>
+<p>Finally, the results will be exported.</p>
+</section>
+</section>
+<section id="references" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-RN3" class="csl-entry" role="doc-biblioentry">
+Cameron, A. R., and F. C. Baldock. 1998. <span>“A New Probability Formula for Surveys to Substantiate Freedom from Disease.”</span> Journal Article. <em>Prev Vet Med</em> 34 (1): 1–17. <a href="https://doi.org/10.1016/s0167-5877(97)00081-0">https://doi.org/10.1016/s0167-5877(97)00081-0</a>.
+</div>
+<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
+</div>
+<div id="ref-RN2" class="csl-entry" role="doc-biblioentry">
+Martin, P. A., A. R. Cameron, and M. Greiner. 2007. <span>“Demonstrating Freedom from Disease Using Multiple Complex Data Sources 1: A New Methodology Based on Scenario Trees.”</span> Journal Article. <em>Prev Vet Med</em> 79 (2-4): 71–97. <a href="https://doi.org/10.1016/j.prevetmed.2006.09.008">https://doi.org/10.1016/j.prevetmed.2006.09.008</a>.
+</div>
+<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>.
+</div>
+<div id="ref-sf2018" class="csl-entry" role="doc-biblioentry">
+Pebesma, Edzer. 2018. <span>“<span class="nocase">Simple Features for R: Standardized Support for Spatial Vector Data</span>.”</span> <em><span>The R Journal</span></em> 10 (1): 439–46. <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a>.
+</div>
+<div id="ref-R-sf" class="csl-entry" role="doc-biblioentry">
+———. 2024. <em>Sf: Simple Features for r</em>. <a href="https://r-spatial.github.io/sf/">https://r-spatial.github.io/sf/</a>.
+</div>
+<div id="ref-R-base" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2022. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-R-freedom" class="csl-entry" role="doc-biblioentry">
+Rosendal, Thomas. 2020. <em>Freedom: Demonstration of Disease Freedom (DDF)</em>. <a href="https://github.com/SVA-SE/freedom">https://github.com/SVA-SE/freedom</a>.
+</div>
+<div id="ref-R-openxlsx" class="csl-entry" role="doc-biblioentry">
+Schauberger, Philipp, and Alexander Walker. 2024. <em>Openxlsx: Read, Write and Edit Xlsx Files</em>. <a href="https://ycphs.github.io/openxlsx/index.html">https://ycphs.github.io/openxlsx/index.html</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://lubridate.tidyverse.org">https://lubridate.tidyverse.org</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://stringr.tidyverse.org">https://stringr.tidyverse.org</a>.
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
+———. 2023. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-R-readxl" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Jennifer Bryan. 2023. <em>Readxl: Read Excel Files</em>. <a href="https://readxl.tidyverse.org">https://readxl.tidyverse.org</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+</div>
+<div id="ref-R-dtplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Maximilian Girlich, Mark Fairbanks, and Ryan Dickerson. 2023. <em>Dtplyr: Data Table Back-End for Dplyr</em>. <a href="https://dtplyr.tidyverse.org">https://dtplyr.tidyverse.org</a>.
+</div>
+<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
+</div>
+<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2024. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
